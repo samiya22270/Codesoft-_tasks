@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Board Website</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f4f4f4;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    .container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:scale(1.03);
+    }
+
+    .card h2{
+      color:#1e3a8a;
+      margin-bottom:10px;
+    }
+
+    .card p{
+      margin:5px 0;
+      color:#555;
+    }
+
+    button{
+      margin-top:10px;
+      padding:10px 15px;
+      border:none;
+      background:#2563eb;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    #search{
+      width:100%;
+      padding:12px;
+      margin-bottom:20px;
+      border-radius:5px;
+      border:1px solid #ccc;
+    }
+
+    .form-container{
+      margin-top:30px;
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      margin:10px 0;
+      border:1px solid #ccc;
+      border-radius:5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Job Board Website</h1>
+
+  <input type="text" id="search" placeholder="Search Jobs..." onkeyup="searchJobs()">
+
+  <div class="container" id="jobContainer">
+
+    <div class="card">
+      <h2>Frontend Developer</h2>
+      <p>Company: TechCorp</p>
+      <p>Location: Remote</p>
+      <button onclick="applyJob('Frontend Developer')">Apply</button>
+    </div>
+
+    <div class="card">
+      <h2>Backend Developer</h2>
+      <p>Company: CodeSoft</p>
+      <p>Location: Delhi</p>
+      <button onclick="applyJob('Backend Developer')">Apply</button>
+    </div>
+
+    <div class="card">
+      <h2>UI/UX Designer</h2>
+      <p>Company: DesignHub</p>
+      <p>Location: Mumbai</p>
+      <button onclick="applyJob('UI/UX Designer')">Apply</button>
+    </div>
+
+  </div>
+
+  <div class="form-container">
+    <h2>Post a Job</h2>
+
+    <input type="text" id="jobTitle" placeholder="Job Title">
+    <input type="text" id="companyName" placeholder="Company Name">
+    <input type="text" id="jobLocation" placeholder="Location">
+
+    <button onclick="addJob()">Post Job</button>
+  </div>
+
+  <script>
+
+    function applyJob(jobName){
+      alert("Application submitted for " + jobName);
+    }
+
+    function searchJobs(){
+      let input = document.getElementById("search").value.toLowerCase();
+      let cards = document.getElementsByClassName("card");
+
+      for(let i = 0; i < cards.length; i++){
+        let title = cards[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
+
+        if(title.includes(input)){
+          cards[i].style.display = "block";
+        }
+        else{
+          cards[i].style.display = "none";
+        }
+      }
+    }
+
+    function addJob(){
+
+      let title = document.getElementById("jobTitle").value;
+      let company = document.getElementById("companyName").value;
+      let location = document.getElementById("jobLocation").value;
+
+      if(title === "" || company === "" || location === ""){
+        alert("Please fill all fields");
+        return;
+      }
+
+      let container = document.getElementById("jobContainer");
+
+      let card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <h2>${title}</h2>
+        <p>Company: ${company}</p>
+        <p>Location: ${location}</p>
+        <button onclick="applyJob('${title}')">Apply</button>
+      `;
+
+      container.appendChild(card);
+
+      document.getElementById("jobTitle").value = "";
+      document.getElementById("companyName").value = "";
+      document.getElementById("jobLocation").value = "";
+
+      alert("Job Posted Successfully");
+    }
+
+  </script>
+
+</body>
+</html>
