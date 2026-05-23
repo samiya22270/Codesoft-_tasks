@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Management Tool</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f4f4f4;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:20px;
+      color:#1e3a8a;
+    }
+
+    .container{
+      max-width:700px;
+      margin:auto;
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, textarea{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border:1px solid #ccc;
+      border-radius:5px;
+    }
+
+    button{
+      padding:12px 20px;
+      border:none;
+      background:#2563eb;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    .task{
+      background:#f9f9f9;
+      padding:15px;
+      margin-top:15px;
+      border-left:5px solid #2563eb;
+      border-radius:5px;
+    }
+
+    .task h3{
+      margin-bottom:5px;
+      color:#333;
+    }
+
+    .task p{
+      color:#555;
+      margin:5px 0;
+    }
+
+    .completed{
+      text-decoration:line-through;
+      color:green;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Project Management Tool</h1>
+
+  <div class="container">
+
+    <input type="text" id="projectName" placeholder="Enter Project Name">
+
+    <textarea id="taskDescription" placeholder="Enter Task Description"></textarea>
+
+    <input type="date" id="deadline">
+
+    <button onclick="addTask()">Add Task</button>
+
+    <div id="taskList"></div>
+
+  </div>
+
+  <script>
+
+    function addTask(){
+
+      let projectName = document.getElementById("projectName").value;
+      let taskDescription = document.getElementById("taskDescription").value;
+      let deadline = document.getElementById("deadline").value;
+
+      if(projectName === "" || taskDescription === "" || deadline === ""){
+        alert("Please fill all fields");
+        return;
+      }
+
+      let taskList = document.getElementById("taskList");
+
+      let taskDiv = document.createElement("div");
+
+      taskDiv.classList.add("task");
+
+      taskDiv.innerHTML = `
+        <h3>${projectName}</h3>
+        <p>${taskDescription}</p>
+        <p><strong>Deadline:</strong> ${deadline}</p>
+        <button onclick="markComplete(this)">Mark Complete</button>
+        <button onclick="deleteTask(this)">Delete</button>
+      `;
+
+      taskList.appendChild(taskDiv);
+
+      document.getElementById("projectName").value = "";
+      document.getElementById("taskDescription").value = "";
+      document.getElementById("deadline").value = "";
+
+    }
+
+    function markComplete(button){
+
+      let task = button.parentElement;
+
+      task.classList.toggle("completed");
+
+    }
+
+    function deleteTask(button){
+
+      let task = button.parentElement;
+
+      task.remove();
+
+    }
+
+  </script>
+
+</body>
+</html>
