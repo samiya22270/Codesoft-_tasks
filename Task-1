@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f4f4;
+}
+
+header{
+    background:#1e3a8a;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+section{
+    background:white;
+    margin:20px;
+    padding:20px;
+    border-radius:10px;
+}
+
+.about{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.about img{
+    width:150px;
+    border-radius:50%;
+}
+
+.project{
+    background:#eee;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>Samiya Sarwar</h1>
+    <p>Web Developer | Student</p>
+</header>
+
+<section class="about">
+    <img src="https://via.placeholder.com/150" alt="Profile">
+    
+    <div>
+        <h2>About Me</h2>
+        <p>I am passionate about web development and creating beautiful websites.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Skills</h2>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Projects</h2>
+
+    <div class="project">
+        <h3>Landing Page</h3>
+        <p>Responsive landing page using HTML and CSS.</p>
+    </div>
+
+    <div class="project">
+        <h3>Calculator</h3>
+        <p>Simple calculator using JavaScript.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Contact</h2>
+    <p>Email: samiya@gmail.com</p>
+    <p>Phone: +91 9876543210</p>
+</section>
+
+<footer>
+    <p>© 2026 Samiya Sarwar</p>
+</footer>
+
+</body>
+</html>
