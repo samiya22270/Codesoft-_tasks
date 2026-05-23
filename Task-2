@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+}
+
+header{
+    background:linear-gradient(to right,#2563eb,#1e40af);
+    color:white;
+    height:100vh;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 50px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+.hero{
+    text-align:center;
+    margin-top:150px;
+}
+
+.hero h2{
+    font-size:50px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:5px;
+    background:white;
+    color:#1e40af;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:50px;
+}
+
+.box{
+    background:#f4f4f4;
+    padding:20px;
+    width:250px;
+    border-radius:10px;
+    text-align:center;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<nav>
+    <h1>TravelX</h1>
+
+    <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Services</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <h2>Explore The World</h2>
+    <p>Adventure starts here</p>
+    <button>Get Started</button>
+</div>
+
+</header>
+
+<section class="features">
+
+<div class="box">
+    <h3>Mountains</h3>
+    <p>Beautiful mountain destinations.</p>
+</div>
+
+<div class="box">
+    <h3>Beaches</h3>
+    <p>Enjoy amazing beach vacations.</p>
+</div>
+
+<div class="box">
+    <h3>Nature</h3>
+    <p>Experience nature like never before.</p>
+</div>
+
+</section>
+
+</body>
+</html>
